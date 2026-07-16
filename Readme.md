@@ -1,6 +1,7 @@
+
 # 🚀 AI Article Summarizer Chrome Extension
 
-> Instantly summarize online articles using Google's Gemini AI with intelligent article extraction, smart caching, Markdown export, and a modern Chrome Extension experience.
+> Instantly summarize online articles using **Google Gemini AI** with intelligent article extraction, smart caching, Markdown export, and a modern Chrome Extension experience.
 
 <p align="center">
 
@@ -17,140 +18,71 @@
 ## ✨ Features
 
 ### 🤖 AI Powered Summaries
-
-- Generate AI summaries using **Google Gemini**
-- Multiple summary modes:
-  - Brief Summary
-  - Detailed Summary
-  - Bullet Point Summary
-
----
+- Brief Summary
+- Detailed Summary
+- Bullet Point Summary
+- Powered by Google Gemini
 
 ### 📄 Smart Article Extraction
-
-Instead of relying on simple HTML selectors, this extension uses **Mozilla Readability** to accurately extract article content from websites like:
-
-- Medium
-- BBC
-- Dev.to
-- Wikipedia
-- News websites
-- Blogs
-
-This significantly improves summary quality.
-
----
+Uses **Mozilla Readability** to accurately extract article content from websites like BBC, Medium, Dev.to, Wikipedia and many more.
 
 ### ⚡ Intelligent Caching
-
-Avoid unnecessary API calls.
-
-The extension automatically caches summaries based on:
-
-- Article URL
-- Summary Type
-
-If the same article is summarized again, the cached version is returned instantly.
-
-Benefits:
-
-- Faster summaries
-- Reduced API usage
-- Better user experience
-
----
-
-### 📝 Markdown Export
-
-Export summaries as a Markdown file.
-
-Perfect for:
-
-- Note taking
-- Documentation
-- Obsidian
-- GitHub
-- Notion
-- Personal knowledge bases
-
----
+- Cache based on **Article URL + Summary Type**
+- Faster repeated summaries
+- Reduced Gemini API calls
 
 ### 📚 Summary History
-
-Recently generated summaries are stored locally.
-
-Users can:
-
-- Reopen previous summaries
-- Restore them instantly
+- Stores recent summaries locally
+- Restore previous summaries
 - Clear history anytime
 
----
+### 📝 Markdown Export
+Export summaries as Markdown files for notes, documentation and knowledge bases.
 
-### 📖 Reading Time Estimation
-
+### 📖 Reading Time
 Displays estimated reading time for the original article.
 
-Helps users understand how much time they're saving.
-
----
-
-### 🎨 Modern User Experience
-
-- Responsive popup UI
-- Loading animations
+### 🎨 Modern UI
+- Responsive popup
+- Loading spinner
 - Error handling
-- Copy to Clipboard
+- Copy to clipboard
 - Settings page
-- Clean and minimal interface
 
 ---
 
-## 🖼 Screenshots
+# 🖼 Screenshots
 
-### Popup
+## 🏠 Main Popup
 
-> _(Add screenshot here)_
-
-```
-screenshots/popup.png
-```
+![Main Popup](screenshots/popup.png)
 
 ---
 
-### Generated Summary
+## ⏳ Generating Summary
 
-> _(Add screenshot here)_
-
-```
-screenshots/bbc-summary.png
-```
-
-```
-screenshots/generatingsummary.png
-```
-
-```
-screenshots/aisummary.png
-```
+![Generating Summary](screenshots/generatingsummary.png)
 
 ---
 
-### Settings Page
+## 🤖 Generated Summary
 
-> _(Add screenshot here)_
+![Generated Summary](screenshots/bbc-summary.png)
 
-```
-screenshots/ai-summary-settings.png
-```
+![AI Summary](screenshots/aisummary.png)
 
 ---
 
-## 🏗 Project Architecture
+## ⚙️ Settings Page
 
-```
+![Settings](screenshots/ai-summary-settings.png)
+
+---
+
+# 🏗️ Project Architecture
+
+```text
 popup/
-│
 ├── popup.html
 ├── popup.css
 ├── popup.js
@@ -162,66 +94,9 @@ popup/
 └── ui.js
 ```
 
-Each module has a single responsibility.
-
-| Module      | Responsibility             |
-| ----------- | -------------------------- |
-| popup.js    | Main controller            |
-| article.js  | Article extraction helpers |
-| gemini.js   | Gemini API communication   |
-| storage.js  | Cache management           |
-| history.js  | Summary history            |
-| markdown.js | Markdown export            |
-| ui.js       | UI rendering               |
-
 ---
 
-## ⚙️ How It Works
-
-```
-Open Article
-
-        ↓
-
-Mozilla Readability
-
-        ↓
-
-Extract Article
-
-        ↓
-
-Generate Cache Key
-(URL + Summary Type)
-
-        ↓
-
-Is Summary Cached?
-
-      ↙       ↘
-
-   YES         NO
-
-   ↓            ↓
-
-Return       Gemini API
-
-Cached          ↓
-
-Summary     Generate Summary
-
-      ↘      ↙
-
- Save Summary
-
-        ↓
-
-Display Result
-```
-
----
-
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
 - JavaScript (ES6 Modules)
 - HTML5
@@ -236,135 +111,74 @@ Display Result
 
 ---
 
-## 🚀 Installation
-
-### Clone the repository
+# 🚀 Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-article-summarizer.git
+git clone https://github.com/ADITISHARMA-22/AI-Summarizer-chrome-extention.git
 ```
+
+1. Open `chrome://extensions`
+2. Enable **Developer Mode**
+3. Click **Load unpacked**
+4. Select the project folder
+5. Add your Gemini API key from the Settings page
 
 ---
 
-### Load Extension
+# 💡 Why Mozilla Readability?
 
-1. Open Chrome
-
-2. Visit
-
-```
-chrome://extensions
-```
-
-3. Enable
-
-```
-Developer Mode
-```
-
-4. Click
-
-```
-Load unpacked
-```
-
-5. Select the project folder.
+Instead of relying only on `document.querySelector("article")`, this extension uses Mozilla Readability to intelligently extract the main content while removing ads, navigation, comments and sidebars, resulting in much better summaries.
 
 ---
 
-### Add Gemini API Key
+# ⚡ Performance Optimizations
 
-1. Open Extension Settings
-
-2. Enter your Gemini API Key
-
-3. Save
-
-Done 🎉
-
----
-
-## 💡 Why Mozilla Readability?
-
-Most Chrome extensions simply do:
-
-```javascript
-document.querySelector("article");
-```
-
-This fails on many websites.
-
-Mozilla Readability intelligently extracts the primary article content while removing:
-
-- Navigation
-- Ads
-- Sidebars
-- Comments
-- Footers
-
-Resulting in significantly better AI summaries.
-
----
-
-## ⚡ Performance Optimizations
-
-Implemented several optimizations to improve user experience:
-
-- Summary caching
-- URL normalization
+- URL + Summary Type caching
 - Cache expiration
 - Duplicate request prevention
-- Modular architecture
-- Optimized article extraction
+- Local summary history
+- Markdown export
+- Modular ES6 architecture
 
 ---
 
-## 🔮 Future Improvements
+# 🔮 Future Improvements
 
 - PDF Export
-- Dark Mode
 - Keyboard Shortcuts
-- Context Menu Integration
 - Stream Gemini Responses
-- YouTube Transcript Summarization
 - Multi-language Support
-- AI Chat with Article
-- Cloud Sync using Supabase/Firebase
+- Chat with Article
+- Cloud Sync
 
 ---
 
-## 📚 What I Learned
-
-While building this project, I explored:
+# 📚 What I Learned
 
 - Chrome Extension Development
 - Manifest V3
 - Content Scripts
-- Background Service Workers
 - Chrome Storage API
 - ES6 Modules
+- Google Gemini API
 - Mozilla Readability
-- Gemini API Integration
 - Browser Messaging
+- Client-side Caching
 - Markdown Generation
-- Browser File Downloads
-- Client-side Caching Strategies
-- Modular JavaScript Architecture
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Aditi Sharma**
 
 Frontend Developer
 
-GitHub: https://github.com/YOUR_USERNAME
-
-LinkedIn: https://linkedin.com/in/YOUR_PROFILE
+- GitHub: https://github.com/ADITISHARMA-22
+- LinkedIn: https://www.linkedin.com/in/aditiiisharma22/
 
 ---
 
-## ⭐ If you like this project
+## ⭐ Support
 
-Give it a ⭐ on GitHub!
+If you like this project, consider giving it a **⭐ Star** on GitHub!
