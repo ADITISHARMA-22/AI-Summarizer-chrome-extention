@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AI Article Summarizer</title>
+
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-icon">AI</div>
+
+          <div>
+            <h1>Article Summarizer</h1>
+            <p>Understand articles in less time</p>
+          </div>
+        </div>
+
+        <button
+          id="settings-btn"
+          class="icon-button"
+          type="button"
+          aria-label="Open extension settings"
+          title="Settings"
+        >
+          ⚙
+        </button>
+      </header>
+
+      <section class="controls-card">
+        <label for="summary-type">Summary style</label>
+
+        <select id="summary-type">
+          <option value="brief">Brief summary</option>
+          <option value="detailed">Detailed summary</option>
+          <option value="bullets">Key bullet points</option>
+        </select>
+
+        <button id="summarize" class="primary-button" type="button">
+          <span aria-hidden="true">✨</span>
+          Generate Summary
+        </button>
+      </section>
+
+      <section id="article-info" class="article-card hidden" aria-live="polite">
+        <div class="article-heading">
+          <span class="section-label">CURRENT ARTICLE</span>
+        </div>
+
+        <h2 id="article-title">Article title</h2>
+
+        <div class="article-meta">
+          <span id="article-author" class="hidden"></span>
+          <span id="article-site"></span>
+          <span id="article-reading-time"></span>
+        </div>
+      </section>
+
+      <section class="summary-card">
+        <div class="summary-header">
+          <div>
+            <span class="section-label">SUMMARY</span>
+            <h2>Your article summary</h2>
+          </div>
+
+          <span id="summary-status" class="status-badge hidden"></span>
+        </div>
+
+        <div id="result" class="result" aria-live="polite">
+          Select a summary style and click
+          <strong>Generate Summary</strong>.
+        </div>
+      </section>
+
+      <section id="history-section" class="history-card hidden">
+        <div class="history-header">
+          <div>
+            <span class="section-label">RECENT</span>
+            <h2>Recent summaries</h2>
+          </div>
+
+          <button id="clear-history-btn" class="text-button" type="button">
+            Clear
+          </button>
+        </div>
+
+        <div id="history-list" class="history-list"></div>
+      </section>
+
+      <footer class="actions">
+        <button id="copy-btn" class="secondary-button" type="button" disabled>
+          Copy Summary
+        </button>
+
+        <button
+          id="markdown-btn"
+          class="secondary-button"
+          type="button"
+          disabled
+        >
+          Export Markdown
+        </button>
+      </footer>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
