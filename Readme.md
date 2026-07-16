@@ -1,4 +1,3 @@
-
 # 🚀 AI Article Summarizer Chrome Extension
 
 > Instantly summarize online articles using **Google Gemini AI** with intelligent article extraction, smart caching, Markdown export, and a modern Chrome Extension experience.
@@ -18,31 +17,38 @@
 ## ✨ Features
 
 ### 🤖 AI Powered Summaries
+
 - Brief Summary
 - Detailed Summary
 - Bullet Point Summary
 - Powered by Google Gemini
 
 ### 📄 Smart Article Extraction
+
 Uses **Mozilla Readability** to accurately extract article content from websites like BBC, Medium, Dev.to, Wikipedia and many more.
 
 ### ⚡ Intelligent Caching
+
 - Cache based on **Article URL + Summary Type**
 - Faster repeated summaries
 - Reduced Gemini API calls
 
 ### 📚 Summary History
+
 - Stores recent summaries locally
 - Restore previous summaries
 - Clear history anytime
 
 ### 📝 Markdown Export
+
 Export summaries as Markdown files for notes, documentation and knowledge bases.
 
 ### 📖 Reading Time
+
 Displays estimated reading time for the original article.
 
 ### 🎨 Modern UI
+
 - Responsive popup
 - Loading spinner
 - Error handling
@@ -75,7 +81,7 @@ Displays estimated reading time for the original article.
 
 ## ⚙️ Settings Page
 
-![Settings](screenshots/ai-summary-settings.png)
+![Settings](screenshots/ai-summary-setting.png)
 
 ---
 
